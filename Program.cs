@@ -11,25 +11,20 @@ namespace Wox.Plugin.ShareX
 
     public class WoxVPNExtension : IPlugin
     {
-        #region members
-
-        private PluginInitContext _context;
-
-        #endregion
 
         #region wox overrides
 
         public void Init(PluginInitContext context)
         {
-            _context = context;
         }
 
         public List<Result> Query(Query query)
         {
             List<Result> resultList = new List<Result>();
 
-            AddScreenshotCommand(resultList, query);
-            AddColorPickerCommand(resultList, query);
+            AddScreenshots(resultList, query);
+            AddGifCaptures(resultList, query);
+            AddColorMixer(resultList, query);
             AddScreenColorPicker(resultList, query);
             AddRuller(resultList, query);
 
@@ -40,15 +35,16 @@ namespace Wox.Plugin.ShareX
 
         #region commands
 
-        private void AddScreenshotCommand(List<Result> resultList, Query query)
+        private void AddScreenshots(List<Result> resultList, Query query)
         {
-            if (StringTools.IsEqualOnStart(query.Search, "screenshot", "capture", "regionscreenshot"))
+            if (StringTools.IsEqualOnStart(query.Search, "screenshot", "capture"))
             {
                 resultList.Add(MakeCommand.CaptureRegionScreenshot());
+                resultList.Add(MakeCommand.CaptureActiveWindowScreenshot());
             }
         }
 
-        private void AddColorPickerCommand(List<Result> resultList, Query query)
+        private void AddColorMixer(List<Result> resultList, Query query)
         {
             if (StringTools.IsEqualOnStart(query.Search, "colorpicker"))
             {
@@ -63,11 +59,21 @@ namespace Wox.Plugin.ShareX
                 resultList.Add(MakeCommand.ShowScreenColorPicker());
             }
         }
+      
         private void AddRuller(List<Result> resultList, Query query)
         {
             if (StringTools.IsEqualOnStart(query.Search, "ruler"))
             {
                 resultList.Add(MakeCommand.ShowRuler());
+            }
+        }
+
+        private void AddGifCaptures(List<Result> resultList, Query query)
+        {
+            if (StringTools.IsEqualOnStart(query.Search, "gif","capture"))
+            {
+                resultList.Add(MakeCommand.CaptureGIF_CustomRegion());
+                resultList.Add(MakeCommand.CaptureGIF_ActiveWindow());
             }
         }
 
