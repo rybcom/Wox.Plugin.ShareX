@@ -1,0 +1,12 @@
+{
+    "ID":"AB3742DACE9D492382945C994D87D1E4",
+    "ActionKeyword":"s",
+    "Name":"ShareX",
+    "Description":"Plugin control to invoke ShareX commands",
+    "Author":"rybcom",
+    "Version":"1.0.0",
+    "Language":"csharp",
+    "Website":"http://www.getwox.com/plugin",
+    "ExecuteFileName":"Wox.Plugin.ShareX.dll",
+    "IcoPath":"Images\\shareX.png"
+}
