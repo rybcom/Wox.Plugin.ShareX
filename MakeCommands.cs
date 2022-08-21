@@ -70,12 +70,12 @@ namespace Wox.Plugin.ShareX
             };
         }
 
-        internal static Result ShowColorPicker()
+        internal static Result ShowColorMixer()
         {
             return new Result
             {
-                Title = "color picker",
-                SubTitle = "color picker",
+                Title = "color mixer",
+                SubTitle = "color mixer",
                 Score = 50,
                 IcoPath = "Images\\color-picker.png",
                 Action = e =>

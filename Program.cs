@@ -46,15 +46,15 @@ namespace Wox.Plugin.ShareX
 
         private void AddColorMixer(List<Result> resultList, Query query)
         {
-            if (StringTools.IsEqualOnStart(query.Search, "colorpicker"))
+            if (StringTools.IsEqualOnStart(query.Search, "colormixer","mixer"))
             {
-                resultList.Add(MakeCommand.ShowColorPicker());
+                resultList.Add(MakeCommand.ShowColorMixer());
             }
         }
 
         private void AddScreenColorPicker(List<Result> resultList, Query query)
         {
-            if (StringTools.IsEqualOnStart(query.Search, "colorpicker-screen"))
+            if (StringTools.IsEqualOnStart(query.Search, "screencolorpicker","colorpicker","picker"))
             {
                 resultList.Add(MakeCommand.ShowScreenColorPicker());
             }
